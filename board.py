@@ -42,6 +42,13 @@ def deep_board(board):
     return new_board
 
 
+<<<<<<< HEAD
+=======
+col = {"A": 0, "B": 1, "C": 2, "D": 3, "E": 4, "F": 5, "G": 6, "H": 7, "I": 8, "J": 9}
+row = {"1": 0, "2": 1, "3": 2, "4": 3, "5": 4, "6": 5, "7": 6, "8": 7, "9": 8, "10": 9}
+
+
+>>>>>>> ecc11329b8da88d4953bc6df5253df1b4e294da5
 def hit_ship(board, ship_vertical):
     ship_lengh = []
     for row in ship_vertical[1]:
@@ -51,3 +58,7 @@ def hit_ship(board, ship_vertical):
                 print(ship_lengh)
     if len(ship_lengh) == 3:
         return True
+<<<<<<< HEAD
+=======
+
+>>>>>>> ecc11329b8da88d4953bc6df5253df1b4e294da5
