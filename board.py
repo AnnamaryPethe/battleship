@@ -13,7 +13,7 @@ def create_board():
 
 
 def print_board(board):
-    system('clear')
+    #system('clear')
     temp_board = deep_board(board)
     col_letters = 'abcdefghij'
     for i in range(len(temp_board)):
@@ -39,17 +39,52 @@ def deep_board(board):
     return new_board
 
 
-col = {"A": 0, "B": 1, "C": 2, "D": 3, "E": 4, "F": 5, "G": 6, "H": 7, "I": 8, "J": 9}
-row = {"1": 0, "2": 1, "3": 2, "4": 3, "5": 4, "6": 5, "7": 6, "8": 7, "9": 8, "10": 9}
+def hit_ship_ver(board):
+    for row in range(len(board)):
+        for col in range(len(board[row])):
+            if board[row][col] == '$' and board[row][col + 1] == '$' and board[row][col + 2] == '$':
+                return True
+    return False
+
+    # ship_lengh = []
+    # for row in ship_vertical[1]:
+    #     for col in ship_vertical[1]:
+    #         if board[row][col] == "$":
+    #             ship_lengh.append("$")
+    #             print(ship_lengh)
+    #             print("This is a boat")
+    # if len(ship_lengh) == 3:
+    #     return True
 
 
-def hit_ship(board, ship_vertical):
-    ship_lengh = []
-    for row in ship_vertical[1]:
-        for col in ship_vertical[1]:
-            if board[row][col] == "$":
-                ship_lengh.append("$")
-                print(ship_lengh)
-    if len(ship_lengh) == 3:
+def hit_ship_hor(board):
+    for row in range(len(board)):
+        for col in range(len(board[row])):
+            if board[row][col] == '$' and board[row + 1][col] == '$' and board[row + 2][col] == '$':
+                return True
+    return False
+
+
+    # ship_lengh = []
+    # for row in ship_horizontal[0]:
+    #     for col in ship_horizontal[0]:
+    #         if board[row][col] == "$":
+    #             ship_lengh.append("$")
+    #             print(ship_lengh)
+    #             print("This is a boat")
+    # if len(ship_lengh) == 3:
+    #     return True
+    # return False
+
+
+def all_fleet_hit(board):
+    if hit_ship_ver(board) and hit_ship_hor(board):
         return True
+    return False
 
+    # hit = []
+    # for row in range(len(board)):
+    #     for col in range(len(board[row])):
+    #         if board[row][col] == "$":
+    #             hit.append("$")
+    # if len(hit) == 6:
