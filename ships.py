@@ -8,10 +8,17 @@ def gen_random_ship(board, pieces, parts, direction=None):
         ship1_row = randint(0, len(board) - (parts + 1))
         ship1_col = randint(0, len(board) - (parts + 1))
         
-        if board[ship1_row][ship1_col] != "Y":
+        if board[ship1_row][ship1_col] != "Y" and board[ship1_row + (parts - 1)][ship1_col] != "Y":
+            board[ship1_row][ship1_col] = "Y"
+        elif board[ship1_row][ship1_col] != "Y" and board[ship1_row - (parts - 1)][ship1_col] != "Y":
+            board[ship1_row][ship1_col] = "Y"
+        elif board[ship1_row][ship1_col] != "Y" and board[ship1_row][ship1_col + (parts - 1)] != "Y":
+            board[ship1_row][ship1_col] = "Y"
+        elif board[ship1_row][ship1_col] != "Y" and board[ship1_row][ship1_col - (parts - 1)] != "Y":
             board[ship1_row][ship1_col] = "Y"
         else:
-            gen_random_ship(board, pieces, parts, direction=None)
+            ship1_row = randint(0, len(board) - (parts + 1))
+            ship1_col = randint(0, len(board) - (parts + 1))
         
         ship_row.append(ship1_row)
         ship_col.append(ship1_col)
